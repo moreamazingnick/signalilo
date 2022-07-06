@@ -6,7 +6,7 @@ import (
 	"strconv"
 
 	"github.com/bketelsen/logr"
-	"github.com/vshn/go-icinga2-client/icinga2"
+	"github.com/moreamazingnick/go-icinga2-client/icinga2"
 )
 
 // Error messages

@@ -17,9 +17,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/moreamazingnick/go-icinga2-client/icinga2"
+	"github.com/moreamazingnick/signalilo/config"
 	"github.com/prometheus/alertmanager/template"
-	"github.com/vshn/go-icinga2-client/icinga2"
-	"github.com/vshn/signalilo/config"
 )
 
 // validateServiceName checks that computed service name matches constraints
@@ -191,13 +191,13 @@ func updateOrCreateService(icinga icinga2.Client,
 	// update or create service, depending on whether object exists
 	if err == nil {
 		l.Infof("updating service: %+v\n", icingaSvc.Name)
-		err := icinga.UpdateService(serviceData)
+		err := icinga.UpdateService(serviceData, c.GetConfig().Template)
 		if err != nil {
 			return serviceData, err
 		}
 	} else if status > 0 {
 		l.Infof("creating service: %+v\n", serviceName)
-		err := icinga.CreateService(serviceData)
+		err := icinga.CreateService(serviceData, c.GetConfig().Template)
 		if err != nil {
 			return serviceData, err
 		}

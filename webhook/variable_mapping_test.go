@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	"github.com/corvus-ch/logr/buffered"
+	"github.com/moreamazingnick/go-icinga2-client/icinga2"
 	"github.com/stretchr/testify/assert"
-	"github.com/vshn/go-icinga2-client/icinga2"
 )
 
 var mapIcingaVariableTest = map[string]struct {

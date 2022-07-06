@@ -21,8 +21,8 @@ import (
 	"github.com/bketelsen/logr"
 	"github.com/corvus-ch/logr/buffered"
 	log "github.com/corvus-ch/logr/logrus"
+	"github.com/moreamazingnick/go-icinga2-client/icinga2"
 	"github.com/sirupsen/logrus"
-	"github.com/vshn/go-icinga2-client/icinga2"
 )
 
 type icingaConfig struct {
@@ -71,6 +71,7 @@ type SignaliloConfig struct {
 	ActiveChecks         bool
 	ChecksInterval       time.Duration
 	CheckCommand         string
+	Template             string
 	MaxCheckAttempts     int
 }
 
@@ -249,6 +250,7 @@ func NewMockConfiguration(verbosity int) Configuration {
 		ActiveChecks:      false,
 		ChecksInterval:    12 * time.Hour,
 		CheckCommand:      "dummy",
+		Template:          "generic-service",
 		MaxCheckAttempts:  1,
 	}
 	mockCfg := &MockConfiguration{

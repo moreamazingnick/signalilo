@@ -15,9 +15,9 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/moreamazingnick/go-icinga2-client/icinga2"
+	"github.com/moreamazingnick/signalilo/config"
 	"github.com/prometheus/alertmanager/template"
-	"github.com/vshn/go-icinga2-client/icinga2"
-	"github.com/vshn/signalilo/config"
 )
 
 // responseJSON is used to marshal responses to incoming webhook requests to

@@ -10,8 +10,8 @@
 package main
 
 import (
+	"github.com/moreamazingnick/signalilo/config"
 	"github.com/stretchr/testify/assert"
-	"github.com/vshn/signalilo/config"
 	"net/http"
 	"testing"
 )

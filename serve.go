@@ -15,10 +15,10 @@ import (
 	"time"
 
 	"github.com/bketelsen/logr"
-	"github.com/vshn/go-icinga2-client/icinga2"
-	"github.com/vshn/signalilo/config"
-	"github.com/vshn/signalilo/gc"
-	"github.com/vshn/signalilo/webhook"
+	"github.com/moreamazingnick/go-icinga2-client/icinga2"
+	"github.com/moreamazingnick/signalilo/config"
+	"github.com/moreamazingnick/signalilo/gc"
+	"github.com/moreamazingnick/signalilo/webhook"
 	"gopkg.in/alecthomas/kingpin.v2"
 )
 
@@ -186,6 +186,7 @@ func configureServeCommand(app *kingpin.Application) {
 	serve.Flag("icinga_ca", "A custom CA certificate to use when connecting to the Icinga API").Envar("SIGNALILO_ICINGA_CA").StringVar(&s.config.CAData)
 	serve.Flag("icinga_service_checks_active", "Create icinga services as active checks").Envar("SIGNALILO_ICINGA_SERVICE_CHECKS_ACTIVE").Default("false").BoolVar(&s.config.ActiveChecks)
 	serve.Flag("icinga_service_checks_command", "Specify icinga check command during service creation").Envar("SIGNALILO_ICINGA_SERVICE_CHECKS_COMMAND").Default("dummy").StringVar(&s.config.CheckCommand)
+	serve.Flag("icinga_service_template", "Specify icinga check command during service creation").Envar("SIGNALILO_ICINGA_SERVICE_TEMPLATE").Default("generic-service").StringVar(&s.config.Template)
 	serve.Flag("icinga_service_checks_interval", "Interval (in seconds) to be used for icinga check_interval and retry_interval").Envar("SIGNALILO_ICINGA_SERVICE_CHECKS_INTERVAL").Default("12h").DurationVar(&s.config.ChecksInterval)
 	serve.Flag("icinga_service_max_check_attempts", "The maximum number of checks which are executed before changing to a hard state").Envar("SIGNALILO_ICINGA_SERVICE_MAX_CHECK_ATTEMPTS").Default("1").IntVar(&s.config.MaxCheckAttempts)
 	serve.Flag("icinga_static_service_var", "A variable to be set on each Icinga service created by Signalilo. The expected format is variable=value. Can be repeated.").Envar("SIGNALILO_ICINGA_STATIC_SERVICE_VAR").StringMapVar(&s.config.StaticServiceVars)

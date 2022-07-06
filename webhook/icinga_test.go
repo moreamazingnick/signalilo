@@ -14,10 +14,10 @@ import (
 	"math"
 	"testing"
 
+	"github.com/moreamazingnick/go-icinga2-client/icinga2"
+	"github.com/moreamazingnick/signalilo/config"
 	"github.com/prometheus/alertmanager/template"
 	"github.com/stretchr/testify/assert"
-	"github.com/vshn/go-icinga2-client/icinga2"
-	"github.com/vshn/signalilo/config"
 )
 
 type alertTestCase struct {
